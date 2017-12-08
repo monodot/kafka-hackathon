@@ -1,7 +1,7 @@
 # kafka-hackathon
-Kafkaaaaaaaaaaaaaaaaaaaa
+Kafkaaaaaaaaaaaaaaaaaaaa. London. 2017. December.
 
-## barnabas
+## Deploy using barnabas (enmasse project)
 
 Using the `openshift-template` from the Barnabas project:
 
@@ -16,5 +16,20 @@ oc new-app barnabas
 ```
 
 ## Camel client
+
+Project created using:
+
+    $ spring init -d=camel -g=com.cleverbuilder.kafkademos -a=camel-kafka-client camel-kafka-client
+
+Then deployed into OpenShift (upstreams):
+
+    $ oc create -f https://raw.githubusercontent.com/fabric8io-images/s2i/master/image-streams.json
+    $ oc new-app fuse-java~https://github.com/monodot/kafka-hackathon --context-dir=camel-kafka-client --labels=app=camel-kafka-client --name=camel-kafka-client
+
+Or OpenShift Container Platform:
+
+    $ oc create -f https://raw.githubusercontent.com/jboss-fuse/application-templates/master/fis-image-streams.json
+    $ oc new-app fis-java-openshift~https://github.com/monodot/kafka-hackathon --context-dir=camel-kafka-client --labels=app=camel-kafka-client --name=camel-kafka-client
+
 
 
