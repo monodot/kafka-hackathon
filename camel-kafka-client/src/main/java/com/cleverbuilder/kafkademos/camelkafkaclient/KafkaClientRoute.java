@@ -11,13 +11,12 @@ public class KafkaClientRoute extends RouteBuilder {
 
     @Override
     public void configure() throws Exception {
-        from("timer:mytimer").process(new Processor() {
-            @Override
-            public void process(Exchange exchange) throws Exception {
-                exchange.getIn().setBody("Test Message from Camel Kafka Component Final", String.class);
-                exchange.getIn().setHeader(KafkaConstants.PARTITION_KEY, 0);
-                exchange.getIn().setHeader(KafkaConstants.KEY, "1");
-            }
-        }).to("kafka:kafka:9092?topic=test");
+        getContext().getShutdownStrategy().setTimeout(30L);
+
+        from("timer:mytimer?period=5000")
+                .setBody(constant("Message from Camel"))          // Message to send
+                .setHeader(KafkaConstants.KEY, constant("Camel")) // Key of the message
+                .to("kafka:{{kafka.topic}}?brokers={{kafka.host}}:{{kafka.port}}");
+
     }
 }

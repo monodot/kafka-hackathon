@@ -17,19 +17,22 @@ oc new-app barnabas
 
 ## Camel client
 
-Project created using:
+A demo client written in Apache Camel using Spring Boot.
+
+The project was initially created using:
 
     $ spring init -d=camel -g=com.cleverbuilder.kafkademos -a=camel-kafka-client camel-kafka-client
 
-Then deployed into OpenShift (upstreams):
+Then deployed into OpenShift (upstreamy):
 
     $ oc create -f https://raw.githubusercontent.com/fabric8io-images/s2i/master/image-streams.json
     $ oc new-app fuse-java~https://github.com/monodot/kafka-hackathon --context-dir=camel-kafka-client --labels=app=camel-kafka-client --name=camel-kafka-client
 
-Or OpenShift Container Platform:
+Or OpenShift Container Platform (enterprisey):
 
     $ oc create -f https://raw.githubusercontent.com/jboss-fuse/application-templates/master/fis-image-streams.json
     $ oc new-app fis-java-openshift~https://github.com/monodot/kafka-hackathon --context-dir=camel-kafka-client --labels=app=camel-kafka-client --name=camel-kafka-client
 
+Notes:
 
-
+- Depends on `org.xerial.snappy:snappy-java:jar:1.1.2.6` which is in 
