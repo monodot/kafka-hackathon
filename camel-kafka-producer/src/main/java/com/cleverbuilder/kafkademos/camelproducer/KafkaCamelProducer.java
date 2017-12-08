@@ -14,7 +14,7 @@ public class KafkaCamelProducer extends RouteBuilder {
         getContext().getShutdownStrategy().setTimeout(30L);
 
         from("timer:mytimer?period=5000")
-                .setBody(constant("Message from Camel"))          // Message to send
+                .setBody(simple("Customer number ${random(1000,2000)} just bought a burger"))
                 .setHeader(KafkaConstants.KEY, constant("Camel")) // Key of the message
                 .log("Sending a message to Kafka...")
                 .to("kafka:{{kafka.topic}}?brokers={{kafka.host}}:{{kafka.port}}");

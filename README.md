@@ -1,6 +1,8 @@
 # kafka-hackathon
 Kafkaaaaaaaaaaaaaaaaaaaa. London. 2017. December.
 
+![Kafka head][kafka]
+
 ## Deploy using barnabas (enmasse project)
 
 Using the `openshift-template` from the Barnabas project:
@@ -29,11 +31,15 @@ Then deployed into OpenShift (upstreamy):
     $ oc new-app fuse-java~https://github.com/monodot/kafka-hackathon --context-dir=camel-kafka-producer --labels=app=camel-kafka-producer --name=camel-kafka-producer
     $ oc new-app fuse-java~https://github.com/monodot/kafka-hackathon --context-dir=camel-kafka-consumer --labels=app=camel-kafka-consumer --name=camel-kafka-consumer
 
-Or OpenShift Container Platform (enterprisey):
+Or OpenShift Container Platform (enterprisey officey):
 
     $ oc create -f https://raw.githubusercontent.com/jboss-fuse/application-templates/master/fis-image-streams.json
-    $ oc new-app fis-java-openshift~https://github.com/monodot/kafka-hackathon --context-dir=camel-kafka-client --labels=app=camel-kafka-client --name=camel-kafka-client
+    $ oc new-app fis-java-openshift~https://github.com/monodot/kafka-hackathon --context-dir=camel-kafka-producer --labels=app=camel-kafka-producer --name=camel-kafka-producer
+    $ oc new-app fis-java-openshift~https://github.com/monodot/kafka-hackathon --context-dir=camel-kafka-consumer --labels=app=camel-kafka-consumer --name=camel-kafka-consumer
 
-Notes:
 
-- _"org.apache.kafka.common.errors.UnknownTopicOrPartitionException: This server does not host this topic-partition."_ -- 
+[kafka]: https://imgur.com/a/XZrz6 "Kafka Head"
+
+
+
+

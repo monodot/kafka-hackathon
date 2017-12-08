@@ -1,4 +1,4 @@
-package com.cleverbuilder.kafkademos.camelproducer;
+package com.cleverbuilder.kafkademos.camelconsumer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

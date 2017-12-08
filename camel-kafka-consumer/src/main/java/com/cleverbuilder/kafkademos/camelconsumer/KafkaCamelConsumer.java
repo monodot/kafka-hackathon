@@ -1,13 +1,10 @@
-package com.cleverbuilder.kafkademos.camelproducer;
+package com.cleverbuilder.kafkademos.camelconsumer;
 
-import org.apache.camel.Exchange;
-import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
-import org.apache.camel.component.kafka.KafkaConstants;
 
 @Component
-public class KafkaCamelProducer extends RouteBuilder {
+public class KafkaCamelConsumer extends RouteBuilder {
 
     @Override
     public void configure() throws Exception {
