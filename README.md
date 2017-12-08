@@ -34,3 +34,9 @@ Or OpenShift Container Platform (enterprisey officey):
     $ oc create -f https://raw.githubusercontent.com/jboss-fuse/application-templates/master/fis-image-streams.json
     $ oc new-app fis-java-openshift~https://github.com/monodot/kafka-hackathon --context-dir=camel-kafka-producer --labels=app=camel-kafka-producer --name=camel-kafka-producer
     $ oc new-app fis-java-openshift~https://github.com/monodot/kafka-hackathon --context-dir=camel-kafka-consumer --labels=app=camel-kafka-consumer --name=camel-kafka-consumer
+    
+Crack open the Jolokia for monitoring FUN:
+
+    $ oc patch dc/camel-kafka-consumer -p '{"spec":{"template":{"spec":{"containers":[{"name":"camel-kafka-consumer","ports":[{"containerPort": 8778,"name":"jolokia"}]}]}}}}'
+    $ oc patch dc/camel-kafka-producer -p '{"spec":{"template":{"spec":{"containers":[{"name":"camel-kafka-producer","ports":[{"containerPort": 8778,"name":"jolokia"}]}]}}}}'
+
