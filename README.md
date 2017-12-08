@@ -26,7 +26,8 @@ The project was initially created using:
 Then deployed into OpenShift (upstreamy):
 
     $ oc create -f https://raw.githubusercontent.com/fabric8io-images/s2i/master/image-streams.json
-    $ oc new-app fuse-java~https://github.com/monodot/kafka-hackathon --context-dir=camel-kafka-client --labels=app=camel-kafka-client --name=camel-kafka-client
+    $ oc new-app fuse-java~https://github.com/monodot/kafka-hackathon --context-dir=camel-kafka-producer --labels=app=camel-kafka-producer --name=camel-kafka-producer
+    $ oc new-app fuse-java~https://github.com/monodot/kafka-hackathon --context-dir=camel-kafka-consumer --labels=app=camel-kafka-consumer --name=camel-kafka-consumer
 
 Or OpenShift Container Platform (enterprisey):
 
@@ -35,4 +36,4 @@ Or OpenShift Container Platform (enterprisey):
 
 Notes:
 
-- Depends on `org.xerial.snappy:snappy-java:jar:1.1.2.6` which is in 
+- _"org.apache.kafka.common.errors.UnknownTopicOrPartitionException: This server does not host this topic-partition."_ -- 

@@ -3,12 +3,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.cleverbuilder.kafkademos</groupId>
-	<artifactId>camel-kafka-client</artifactId>
+	<artifactId>camel-kafka-consumer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>CleverBuilder :: Kafka Demos :: Camel Kafka Client</name>
-	<description>Demo project for Kafka</description>
+	<name>CleverBuilder :: Kafka Demos :: Camel Kafka Consumer</name>
+	<description>Consumes from the Kafkas</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
